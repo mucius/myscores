@@ -2,6 +2,7 @@
 # $Id$
 src = [
     'chopin_op28_7',
+    'dargo_mazurka_2'
     ]
 midiFiles = []
 psFiles   = []
@@ -10,9 +11,11 @@ for m in src:
     psFiles.append( m + '.ps')
 import os
 env = Environment( ENV = os.environ)
-env[ 'ENV'][ 'LANG'] = 'en'
-env[ 'BUILDERS']['LilyPond'] = Builder( action = 'lilypond $SOURCE',
-    suffix = '.pdf', src_suffix = '.ly')
+env.Append(
+    ENV = { 'LANG' :  'en'},
+    BUILDERS = { 'LilyPond' : Builder( action = 'lilypond $SOURCE',
+        suffix = '.pdf', src_suffix = '.ly')},
+)
 for tgt in src:
-  env.LilyPond( tgt)
+    env.LilyPond( tgt)
 env.Clean( '.', [ midiFiles, psFiles])
