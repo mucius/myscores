@@ -50,10 +50,10 @@ upper = \relative e' {
   r4 \bar "|." |
 }
 
-lower = \relative e' {
+lower = \relative e, {
   \clef bass
   \key a \major
-  r4 e, <e e'> <e e'> | <e e'>2 r4 | a, <a' e'> <a e'> | <a e'>2 r4
+  r4 e <e' e'> <e e'> | <e e'>2 r4 | a, <a' e'> <a e'> | <a e'>2 r4
   \barNumberCheck #5
   e, <e' h'> <e h'> | <e h'>2 r4 | a,, <e'' a e'> <e a e'> |
   <e a e'>2 r4 | e, <e' e'> <e e'> |
