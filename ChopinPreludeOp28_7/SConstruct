@@ -1,0 +1,33 @@
+# Scons script for LilyPond
+# $Id$
+src = [
+    'primer001',
+    'primer002',
+    'frag000',
+    'frag001',
+    'frag002',
+    'frag003',
+    ]
+midiFiles = []
+psFiles   = []
+pv_pngFiles = []
+pv_pdfFiles = []
+pv_epsFiles = []
+pv = '.preview'
+for m in src:
+    midiFiles.append( m + '.midi')
+    psFiles.append( m + '.ps')
+    pv_pdfFiles.append( m + pv + '.pdf')
+    pv_pngFiles.append( m + pv + '.png')
+    pv_epsFiles.append( m + pv + '.eps')
+import os
+env = Environment( ENV = os.environ)
+env.Append(
+    ENV = { 'LANG' :  'en'},
+    BUILDERS = { 'LilyPond' : Builder( action = 'lilypond -p $SOURCE',
+        suffix = '.pdf', src_suffix = '.ly')},
+)
+for tgt in src:
+    env.LilyPond( tgt)
+    env.Depends( tgt, 'header.ly')
+env.Clean( '.', [ midiFiles, psFiles, pv_pdfFiles, pv_pngFiles, pv_epsFiles])
