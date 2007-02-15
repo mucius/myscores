@@ -3,10 +3,12 @@
 src = [
     'primer001',
     'primer002',
+    'primer003',
     'frag000',
     'frag001',
     'frag002',
     'frag003',
+    'frag004',
     ]
 midiFiles = []
 psFiles   = []
