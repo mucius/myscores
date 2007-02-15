@@ -1,14 +1,9 @@
 # Scons script for LilyPond
 # $Id$
 src = [
-    'primer001',
-    'primer002',
-    'primer003',
-    'frag000',
-    'frag001',
-    'frag002',
-    'frag003',
-    'frag004',
+    'primer001', 'primer002', 'primer003',
+    'frag000', 'frag001', 'frag002', 'frag003', 'frag004',
+    'frag005', 'frag006', 'frag007',
     ]
 midiFiles = []
 psFiles   = []
