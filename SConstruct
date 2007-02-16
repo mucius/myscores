@@ -11,11 +11,7 @@ for m in src:
     psFiles.append( m + '.ps')
 import os
 env = Environment( ENV = os.environ)
-env.Append(
-    ENV = { 'LANG' :  'en'},
-    BUILDERS = { 'LilyPond' : Builder( action = 'lilypond $SOURCE',
-        suffix = '.pdf', src_suffix = '.ly')},
-)
+env.Tool( 'lytool', '.')
 for tgt in src:
     env.LilyPond( tgt)
 env.Clean( '.', [ midiFiles, psFiles])
