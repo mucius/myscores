@@ -2,7 +2,7 @@
  Prelude op.28-7 by Frederic Chopin
  $Id$
 %}
-\include "header.ly"
+\include "deutsch.ly"
 
 \header {
   title = "Prelude"

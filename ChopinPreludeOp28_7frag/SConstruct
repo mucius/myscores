@@ -19,12 +19,8 @@ for m in src:
     pv_epsFiles.append( m + pv + '.eps')
 import os
 env = Environment( ENV = os.environ)
-env.Append(
-    ENV = { 'LANG' :  'en'},
-    BUILDERS = { 'LilyPond' : Builder( action = 'lilypond -p $SOURCE',
-        suffix = '.pdf', src_suffix = '.ly')},
-)
+env.Tool( 'lytool')
+env.Append( LYFLAGS = [ '-p'],)
 for tgt in src:
     env.LilyPond( tgt)
-    env.Depends( tgt, 'header.ly')
 env.Clean( '.', [ midiFiles, psFiles, pv_pdfFiles, pv_pngFiles, pv_epsFiles])

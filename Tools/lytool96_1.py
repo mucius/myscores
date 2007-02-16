@@ -24,7 +24,7 @@ def lyPathFunc( env, node):
 
 def generate(env):
   env['LY'] = 'lilypond'
-  env['LYFLAGS'] = [ '--pdf']
+  env['LYFLAGS'] = []
   env['LYCOM'] = '$LY $LYFLAGS ${SOURCE}'
   env['LYPATH'] = lysyspath
   scanner = env.Scanner(

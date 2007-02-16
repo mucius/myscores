@@ -11,7 +11,8 @@ for m in src:
     psFiles.append( m + '.ps')
 import os
 env = Environment( ENV = os.environ)
-env.Tool( 'lytool', '.')
+env.Append( ENV = { 'LANG' : 'en'})
+env.Tool( 'lytool')
 for tgt in src:
     env.LilyPond( tgt)
 env.Clean( '.', [ midiFiles, psFiles])

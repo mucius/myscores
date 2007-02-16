@@ -22,7 +22,7 @@ def lyScanner( node, env, path):
 
 def generate(env):
   env['LY'] = 'lilypond.exe'
-  env['LYFLAGS'] = [ '--pdf']
+  env['LYFLAGS'] = []
   env['LYCOM'] = '$LY $LYFLAGS ${SOURCE}'
   env['LYPATH'] = lysyspath
   scanner = env.Scanner(
