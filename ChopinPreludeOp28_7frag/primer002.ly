@@ -7,10 +7,10 @@ upper = \relative e' {
   e4 | cis'8. d16 <d, gis h>4 <d gis h> 
 }
 
-lower = \relative e {
+lower = \relative e, {
   \clef bass
   \key a \major
-  { r | e <e e'> <e e'>}
+  { r | e <e' e'> <e e'>}
 }
 
 \score {
