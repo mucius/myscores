@@ -1,5 +1,5 @@
 %{
-  Nouvelles Mazurkas by A.Dargomizhky
+  Nouvelles Mazurkas No.2 by A.Dargomizhky
   $Id$
 %}
 \include "deutsch.ly"
@@ -111,6 +111,7 @@ lower = {
 
 \score {
   \new PianoStaff <<
+      \set PianoStaff.instrumentName = #"No.2"
       \new Staff = "upper" \upper
       \new Staff = "lower" \lower
   >>

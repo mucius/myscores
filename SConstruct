@@ -2,7 +2,8 @@
 # $Id$
 src = [
     'chopin_op28_7',
-    'dargo_mazurka_2'
+    'dargo_mazurka_1',
+    'dargo_mazurka_2',
     ]
 midiFiles = []
 psFiles   = []
