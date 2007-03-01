@@ -4,7 +4,7 @@ import re
 import SCons.Scanner
 
 include_re = re.compile(r'\s*\\include\s+"(\S+)".*')
-lysyspath  = ('C:/usr/share/lilypond/current/ly', '.')
+lysyspath  = ('/usr/share/lilypond/current/ly', '.')
 
 def lyScanner( node, env, path):
   contents = node.get_contents()
@@ -21,10 +21,13 @@ def lyScanner( node, env, path):
   return results
 
 def generate(env):
+  import os
   env['LY'] = 'lilypond.exe'
   env['LYFLAGS'] = []
   env['LYCOM'] = '$LY $LYFLAGS ${SOURCE}'
   env['LYPATH'] = lysyspath
+  env.PrependENVPath( 'PATH', os.environ[ 'PATH'])
+  env.PrependENVPath( 'HOME', os.environ[ 'HOME'])
   scanner = env.Scanner(
       function = lyScanner,
       name = 'Lilypond Scanner',
@@ -37,6 +40,7 @@ def generate(env):
       suffix = '.pdf',
       src_suffix = '.ly')
   env[ 'BUILDERS']['LilyPond'] = builder
+
 def exists(env):
-  return 1
+  return env.Detect('lilypond')
 

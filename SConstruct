@@ -1,19 +1,9 @@
 # Scons script for LilyPond
 # $Id$
-src = [
-    'chopin_op28_7',
-    'dargo_mazurka_1',
-    'dargo_mazurka_2',
-    ]
-midiFiles = []
-psFiles   = []
-for m in src:
-    midiFiles.append( m + '.midi')
-    psFiles.append( m + '.ps')
-import os
-env = Environment( ENV = os.environ)
-env.Append( ENV = { 'LANG' : 'en'})
-env.Tool( 'lytool')
+import glob, os.path
+src = glob.glob('*.ly')
+env = Environment()
 for tgt in src:
-    env.LilyPond( tgt)
-env.Clean( '.', [ midiFiles, psFiles])
+    base = os.path.splitext( tgt)[ 0]
+    env.LilyPond( base)
+    env.Clean( '.', [ base + '.midi', base + '.ps'])
