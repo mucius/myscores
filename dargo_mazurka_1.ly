@@ -94,7 +94,10 @@ partClower = {
   <g, g'> <g'' c e> <g c e> |
   <g, g'> <g' h d> <g h d> |
   <g, g'> <g' h d> <g h d> |
-  <c,, c'> <c' e g c>
+  <c,, c'>
+  \once \override Score.RehearsalMark #'extra-offset = #'(0 . -10)
+  \mark \markup { \bold \italic "D.C." }
+  <c' e g c>
 }
 
 
