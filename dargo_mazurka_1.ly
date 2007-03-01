@@ -12,17 +12,17 @@
 % #0 - #8
 partAupper = {
   <e  g>8.( <f a>16 |
-  <e g>4) <c e>8.( <d f>16 <c e>4) |
-  <e, c'>2
-  <e' g>8.( <f a>16 | <e g>4) <c e>8.( <d f>16 <c e>4) |
+  <e g>4-|) <c e>8.( <d f>16 <c e>4-|) |
+  <e, c'>2\sf
+  <e' g>8.( <f a>16 | <e g>4-|) <c e>8.( <d f>16 <c e>4-|) |
   <<
     { d2( a8.) e'16 | d2( a8.) e'16 | } \\
-    { fis,2. | fis2. }
+    { fis,2.\sf | fis2.\sf }
   >>
   d'8. h16 g4 gis4~\trill | 
   <<
     { a(  \stemDown c'8.) a16(  \stemUp fis8.) d'16( |
-      \stemNeutral g,4) <g h g'> } \\
+      \stemNeutral g,4) <g h g'>\sf } \\
     { s2 d4 | s2 }
   >>
 }
@@ -35,12 +35,12 @@ partAlower = {
 
 % #8 - 15
 partBupper = {
-  fis8.( g16 | h8.) a16( c,4..) e16 | <h d>4( <h' d>) r8. h,16 |
+  fis8.( g16 | h8.-|) a16( c,4..) e16 | <h d>4( <h' d>-|) r8. h,16 |
   <<
     { r8. fis'16 g8. gis16 a8. ais16 | h4( g) } \\
     { c,2~ c8. cis16 | d2}
   >>
-  fis8.( g16 | h8.) a16( c,4..) e16 | <h d>4( <h' d>) r8. <a c>16 |
+  fis8.( g16 | h8.-|) a16( c,4..) e16 | <h d>4( <h' d>) r8. <a c>16 |
   <<
     { h2~ h8. a16 | } \\
     { g8. e16 es8. d16 cis8. c16 |}
@@ -62,17 +62,17 @@ partCupper = {
   r4
   \bar "||"
   <e g>8( <f a>) <e g>-.[ <e g>-.] <d f>-. <d f>-. |
-  <c e>4 <c e c'>2 |
+  <c e>4 <c e c'>2\sf |
   <e g>8( <f a>) <e g>-.[ <e g>-.] <d f>-. <d f>-. |
-  <c e>4 <e g c>2 |
+  <c e>4 <e g c>2\sf |
   <f d'>8( <g e'>) <f d'>4-. <d h'>-. |
   <f d'>2->( <e c'>4) |
   <d h'>8( <c c'>) <d h'>4-. <h gis'>-. |
   <d h'>2->( <c a'>4) | 
   <e g>8( <f a>) <e g>-.[ <e g>-.] <d f>-. <d f>-. |
-  <c e>4 <c e c'>2 |
+  <c e>4 <c e c'>2\sf |
   <c e>8( <d f>) <c e>-.[ <c e>-.] <h d>-. <h d>-. |
-  <a c>4 <a c a'>2 |
+  <a c>4 <a c a'>2\sf |
   <e' g>8( <f a>) <e g>4-. <c e>-. |
   <e g>2->( <d f>4) |
   g,8. <fis a>16 <f h>4 <f d'> | <e c'> r4 

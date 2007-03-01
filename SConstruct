@@ -6,4 +6,4 @@ env = Environment()
 for i in src:
     tgt = os.path.splitext( i)[ 0]
     env.LilyPond( tgt)
-    env.Clean( '.', [ tgt + '.midi', tgt + '.ps'])
+    env.Clean( '.', [ tgt + '.midi', tgt + '.ps', tgt + '.png'])
