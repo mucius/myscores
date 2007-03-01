@@ -1,26 +1,12 @@
 # Scons script for LilyPond
 # $Id$
-src = [
-    'primer001', 'primer002', 'primer003',
-    'frag000', 'frag001', 'frag002', 'frag003', 'frag004',
-    'frag005', 'frag006', 'frag007',
-    ]
-midiFiles = []
-psFiles   = []
-pv_pngFiles = []
-pv_pdfFiles = []
-pv_epsFiles = []
+import glob, os.path
+src = glob.glob( 'primer*.ly') + glob.glob('frag*.ly')
 pv = '.preview'
-for m in src:
-    midiFiles.append( m + '.midi')
-    psFiles.append( m + '.ps')
-    pv_pdfFiles.append( m + pv + '.pdf')
-    pv_pngFiles.append( m + pv + '.png')
-    pv_epsFiles.append( m + pv + '.eps')
-import os
-env = Environment( ENV = os.environ)
-env.Tool( 'lytool')
-env.Append( LYFLAGS = [ '-p'],)
-for tgt in src:
+env = Environment()
+env.Append( LYFLAGS = [ '-p'])
+for i in src:
+    tgt = os.path.splitext( i)[0]
     env.LilyPond( tgt)
-env.Clean( '.', [ midiFiles, psFiles, pv_pdfFiles, pv_pngFiles, pv_epsFiles])
+    env.Clean( '.', [ tgt + '.midi', tgt + '.ps',
+        tgt + pv + '.pdf', tgt + pv + '.png', tgt + pv + '.eps' ])
