@@ -35,7 +35,7 @@ def lyScanner( node, env, path):
 
 def generate(env):
   import os
-  env['LY'] = 'lilypond.exe'
+  env['LY'] = 'lilypond'
   env['LYFLAGS'] = []
   env['LYCOM'] = '$LY $LYFLAGS ${SOURCE}'
   env['LYPATH'] = lysyspath

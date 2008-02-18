@@ -3,7 +3,7 @@
 import glob, os.path
 src = glob.glob( 'primer*.ly') + glob.glob('frag*.ly')
 pv = '.preview'
-env = Environment( tools=['lytool'], toolpath=['/home/tory/python/lib'])
+env = Environment( tools=['lytool'], toolpath=['../Tools'])
 env.Append( LYFLAGS = [ '-p'])
 for i in src:
     tgt = os.path.splitext( i)[0]
