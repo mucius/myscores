@@ -10,54 +10,53 @@ $Id$
 """
 import os
 import re
-
 import SCons.Scanner
 import SCons.Platform
 
-platform = SCons.Platform.platform_default()
+PLATFORM = SCons.Platform.platform_default()
+INCLUDE_RE = re.compile(r'\s*\\include\s+"(\S+)".*')
+LYSYSPATH = ('/usr/share/lilypond/current/ly', '.')
 
-include_re = re.compile(r'\s*\\include\s+"(\S+)".*')
-lysyspath  = ('/usr/share/lilypond/current/ly', '.')
 
-def lyScanner( node, env, path):
-  contents = node.get_contents()
-  includes = include_re.findall( contents)
-  if includes == []:
-    return includes
-  results = []
-  for inc in includes:
-    for dir in path:
-      f = str(dir) + os.sep + inc
-      if os.path.exists( f):
-        results.append( f)
-        break
-  return results
+def ly_scanner(node, _env, path):
+    """ scann lytool """
+    contents = node.get_contents()
+    includes = INCLUDE_RE.findall(contents)
+    if includes == []:
+        return includes
+    results = []
+    for inc in includes:
+        for dir_ in path:
+            file_ = str(dir_) + os.sep + inc
+            if os.path.exists(file_):
+                results.append(file_)
+                break
+    return results
+
 
 def generate(env):
-  import os
-  env['LY'] = 'lilypond'
-  env['LYFLAGS'] = []
-  env['LYCOM'] = '$LY $LYFLAGS ${SOURCE}'
-  env['LYPATH'] = lysyspath
-  env.PrependENVPath( 'PATH', os.environ[ 'PATH'])
-  if platform == 'win32':
-    env.PrependENVPath( 'HOME',
-        os.environ[ 'HOMEDRIVE'] + os.environ[ 'HOMEPATH'] )
-  else:
-    env.PrependENVPath( 'HOME', os.environ[ 'HOME'])
-  scanner = env.Scanner(
-      function = lyScanner,
-      name = 'Lilypond Scanner',
-      skeys = ['.ly'],
-      path_function = SCons.Scanner.FindPathDirs( 'LYPATH'),
-      recursive = 1)
-  env['SCANNERS'] += [scanner]
-  builder = SCons.Builder.Builder(
-      action = '$LYCOM',
-      suffix = '.pdf',
-      src_suffix = '.ly')
-  env[ 'BUILDERS']['LilyPond'] = builder
+    """ generate builder """
+    env['LY'] = 'lilypond'
+    env['LYFLAGS'] = []
+    env['LYCOM'] = '$LY $LYFLAGS ${SOURCE}'
+    env['LYPATH'] = LYSYSPATH
+    env.PrependENVPath('PATH', os.environ['PATH'])
+    if PLATFORM == 'win32':
+        env.PrependENVPath('HOME',
+          os.environ['HOMEDRIVE'] + os.environ['HOMEPATH'])
+    else:
+        env.PrependENVPath('HOME', os.environ['HOME'])
+    scanner = env.Scanner(function=ly_scanner,
+            name='Lilypond Scanner', skeys=['.ly'],
+            path_function=SCons.Scanner.FindPathDirs('LYPATH'),
+            recursive=1)
+    env['SCANNERS'] += [scanner]
+    builder = SCons.Builder.Builder(action='$LYCOM', suffix='.pdf',
+            src_suffix='.ly')
+    env['BUILDERS']['LilyPond'] = builder
+
 
 def exists(env):
-  return env.Detect('lilypond')
-
+    """ existance check """
+    return env.Detect('lilypond')
+# vim:sw=4 ts=4 expandtab:
