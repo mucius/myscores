@@ -14,7 +14,7 @@ upper = \relative e' {
   \time 3/4
   \key a \major
   \partial 4
-  e4^\markup { \bold "Andantino" } \( | cis'8. d16 <d, gis h>4 <d gis h> |
+  e4\p_\markup { \italic \small { dolce } }^\markup { \bold "Andantino" } \( | cis'8. d16 <d, gis h>4 <d gis h> |
   <d gis h>2\) <d' fis>4\( | <his dis>8. <cis e>16 <cis a'>4 <cis a'> |
   <cis a'>2\)
   \barNumberCheck #4
@@ -30,7 +30,8 @@ upper = \relative e' {
     {
       s4\( | \stemUp cis'8. d16 \stemNeutral<d, gis h>4 <d gis h> |
       <d gis h>2 \) \stemUp<d' fis>4\( | s4 \stemUp<a' cis>  <a cis>  |
-      \stemDown<ais, cis e ais cis>2 \) 
+	  \set PianoStaff.connectArpeggios = ##t
+      \stemDown<ais, cis e ais cis>2\arpeggio \) 
     } \\
     {
       \stemUp e4~ | \stemDown<e gis> \stemNeutral s2 |
@@ -52,15 +53,15 @@ upper = \relative e' {
 lower = \relative e, {
   \clef bass
   \key a \major
-  r4 e <e' e'> <e e'> | <e e'>2 r4 | a, <a' e'> <a e'> | <a e'>2 r4
+  r4 e\sustainOn <e' e'> <e e'> | <e e'>2\sustainOff r4 | a,\sustainOn <a' e'> <a e'> | <a e'>2 r4\sustainOff
   \barNumberCheck #5
-  e, <e' h'> <e h'> | <e h'>2 r4 | a,, <e'' a e'> <e a e'> |
-  <e a e'>2 r4 | e, <e' e'> <e e'> |
+  e,\sustainOn <e' h'> <e h'> | <e h'>2 r4\sustainOff | a,,\sustainOn <e'' a e'> <e a e'> |
+  <e a e'>2 r4\sustainOff | e,\sustainOn <e' e'> <e e'> |
   \barNumberCheck #10
-  <e e'>2 r4 | a, <a' e' a> <a e' a> | <fis cis' e fis>2 r4 |
-  h,, <fis'' d'> <fis h d> | <e h' d>2 r4 |
+  <e e'>2 r4\sustainOff | a,\sustainOn <a' e' a> <a e' a>\sustainOff | <fis cis' e fis>2\sustainOn\arpeggio r4\sustainOff |
+  h,,\sustainOn <fis'' d'> <fis h d>\sustainOff | <e h' d>2\sustainOn r4\sustainOff |
   \barNumberCheck #15
-  a,, <e'' a e'> <a e'> | <a e'>2 r4 \bar "|." |
+  a,,\sustainOn <e'' a e'> <a e'> | <a e'>2 r4\sustainOff \bar "|." |
 }
 
 \score {
