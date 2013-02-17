@@ -20,7 +20,7 @@ upper = \relative c'' {
   a'8. g16 d4) g,8. ( c16 | h2) g8. c16 |
   \barNumberCheck #5
   h4( a8.) e'16( a,8.)  e'16( | a,4)~ a8. e'16( a,8.) es'16( |
-  a,8.) d16( a8.) cis16( a8.) c16( | d,4 r8. cis'16( d8. g16 |
+  a,8.) d16( a8.) cis16( a8.) c16( | d,4) r8. cis'16( d8. g16 |
   h8. a16 g4) h,8.( e16 |
   \barNumberCheck #10
   d4~d8.) his16( cis8. e16) | a8.( g16 fis4) a,8.( d16 |
@@ -31,7 +31,7 @@ upper = \relative c'' {
   \break
   <<
     \barNumberCheck #17
-    { f8. fis16 g2~( | g~ f4) | } \\
+    { f8. fis16 g2~( | g f4) | } \\
     { r4 r4.. g,16 | e'2 ( d4) | }
   >>
   <c e>8. <d f>16( <c e>8.) <d f>16( <c e>8.) <f a>16(|

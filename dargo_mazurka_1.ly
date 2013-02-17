@@ -8,8 +8,12 @@
   composer = "A.Dargomizhky(1813-1869)"
 }
 
+
 #(set-global-staff-size 17)
 % #0 - #8
+
+dashPlus = "trill"
+
 partAupper = {
   <e  g>8.( <f a>16 |
   <e g>4-|) <c e>8.( <d f>16 <c e>4-|) |
@@ -19,7 +23,7 @@ partAupper = {
     { d2( a8.) e'16 | d2( a8.) e'16 | } \\
     { fis,2.\sf | fis2.\sf }
   >>
-  d'8. h16 g4 gis4~\trill | 
+  d'8. h16 g4 gis4-+ | 
   <<
     { a(  \stemDown c'8.) a16(  \stemUp fis8.) d'16( |
       \stemNeutral g,4) <g h g'>\sf } \\

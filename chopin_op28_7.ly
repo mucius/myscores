@@ -10,6 +10,8 @@
   opus = "op.28-7"
 }
 
+ignore = \override NoteColumn #'ignore-collision = ##t
+
 upper = \relative e' {
   \time 3/4
   \key a \major
@@ -19,6 +21,7 @@ upper = \relative e' {
   <cis a'>2\)
   \barNumberCheck #4
   <<
+    \ignore
     { <e, cis'>4 \( | s4 <fis d'> <fis d'> | <fis d'>2 \) } \\
     { s4 | \stemUp<cis ais'>8. <d h'>16~ d2~ | d } 
   >>
@@ -41,6 +44,7 @@ upper = \relative e' {
   \barNumberCheck #12
   <ais cis>4\( | <ais cis>8. <h d>16 <h fis'>4 <a fis'> | <gis fis'>2 \)
   <<
+    \ignore
     {
       <d gis>4\( | <d h'>8. <cis a'>16 <cis' a'>4 <cis a'> |
       \stemDown<cis a'>2 \)
