@@ -16,9 +16,9 @@ dashPlus = "trill"
 
 partAupper = {
   <e  g>8.( <f a>16 |
-  <e g>4-|) <c e>8.( <d f>16 <c e>4-|) |
+  <e g>4-) <c e>8.( <d f>16 <c e>4-) |
   <e, c'>2\sf
-  <e' g>8.( <f a>16 | <e g>4-|) <c e>8.( <d f>16 <c e>4-|) |
+  <e' g>8.( <f a>16 | <e g>4-) <c e>8.( <d f>16 <c e>4-) |
   <<
     { d2( a8.) e'16 | d2( a8.) e'16 | } \\
     { fis,2.\sf | fis2.\sf }
@@ -39,12 +39,12 @@ partAlower = {
 
 % #8 - 15
 partBupper = {
-  fis8.( g16 | h8.-|) a16( c,4..) e16 | <h d>4( <h' d>-|) r8. h,16 |
+  fis8.( g16 | h8.-) a16( c,4..) e16 | <h d>4( <h' d>-) r8. h,16 |
   <<
     { r8. fis'16 g8. gis16 a8. ais16 | h4( g) } \\
     { c,2~ c8. cis16 | d2}
   >>
-  fis8.( g16 | h8.-|) a16( c,4..) e16 | <h d>4( <h' d>) r8. <a c>16 |
+  fis8.( g16 | h8.-) a16( c,4..) e16 | <h d>4( <h' d>) r8. <a c>16 |
   <<
     { h2~ h8. a16 | } \\
     { g8. e16 es8. d16 cis8. c16 |}
