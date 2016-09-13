@@ -1,0 +1,12 @@
+# Scons script for LilyPond
+# $Id$
+import glob, os.path
+src = glob.glob( 'primer*.ly') + glob.glob('frag*.ly')
+pv = '.preview'
+env = Environment( tools=['lytool'], toolpath=['../Tools'])
+env.Append( LYFLAGS = [ '-dpreview=#t'])
+for i in src:
+    tgt = os.path.splitext( i)[0]
+    env.LilyPond( tgt)
+    env.Clean( '.', [ tgt + '.midi', tgt + '.ps',
+        tgt + pv + '.pdf', tgt + pv + '.png', tgt + pv + '.eps' ])
