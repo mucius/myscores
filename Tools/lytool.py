@@ -21,7 +21,7 @@ LYSYSPATH = ('/usr/share/lilypond/current/ly', '.')
 def ly_scanner(node, _env, path):
     """ scann lytool """
     contents = node.get_contents()
-    includes = INCLUDE_RE.findall(contents)
+    includes = INCLUDE_RE.findall(contents.decode('utf-8'))
     if includes == []:
         return includes
     results = []
